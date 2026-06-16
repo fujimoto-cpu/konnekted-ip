@@ -183,7 +183,7 @@ for m in MEMBERS:
     H.append('<div class="strip"><span class="nm">'+esc(m["name"])+'</span><span class="emoji">'+m["emoji"]+'</span></div></div>')
     H.append('<div class="clrbar" style="background:'+m["hex"]+'"></div><div class="body">')
     H.append('<div class="ja">'+esc(m["ja"])+'</div><div class="pos">'+esc(m["pos"])+'</div>')
-    H.append('<div class="meta">'+esc(m["color"])+' '+m["hex"]+'<br>'+esc(m["age"])+'歳・'+esc(m["height"])+'・'+esc(m["from"])+'</div>')
+    H.append('<div class="meta">'+esc(m["color"])+' '+m["hex"]+'<br>🎂 '+esc(m["birth"])+'（'+esc(m["age"])+'歳）<br>'+esc(m["height"])+'・'+esc(m["from"])+'</div>')
     H.append('<div class="hob">🎯 '+esc(m["hobby"])+'</div></div></div>')
 H.append('</div><p class="note">※ メンバー写真は aoen 公式（公式サイト profile / 公式 Weverse）から取得。各IP公式に帰属。</p></section>')
 
