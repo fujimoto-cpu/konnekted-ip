@@ -23,7 +23,7 @@ GROUP = {
     "origin":"ao（青＝最も熱い炎の色）＋ en（炎＝情熱の疾走）。「応援（エール）」の音も重ねた造語。意味は「青い炎で世界を満たす」",
     "label":"JCONIC（旧 YX LABELS / HYBE LABELS JAPAN・2026/1 移管）",
     "debut":"2025年6月11日 デビュー曲「The Blue Sun」",
-    "audition":"オーディション番組「応援-HIGH（Oen-HIGH）」発",
+    "audition":"オーディション番組「応援-HIGH 〜夢のスタートライン〜（Oen-HIGH）」発",
     "fandom":"aoring（アオリン）","members":"7名",
     "concept":"次世代J-POPボーイズ。「青い炎」＝情熱・スピード・応援。MV/ビジュアルは Day版 / Night版 の2軸展開",
     "key_hex":"#4CEDFF",
@@ -31,10 +31,10 @@ GROUP = {
            ("Instagram","https://www.instagram.com/aoen.official/"),("YouTube","https://www.youtube.com/@aoen_official"),
            ("Weverse","https://weverse.io/aoen")],
     "disco":["1st Single「The Blue Sun」(2025/6/11)","Digital Single「青春インクレディブル」(2025/10/15)",
-             "2nd Single「秒で落ちた」(2026/3/18)","3rd Single「ハジマリCOLOR」(2026/7予定)"],
+             "2nd Single「秒で落ちた」(2026/3/18)","3rd Single「ハジマリCOLOR」(2026/7/22)"],
 }
 MEMBERS = [
- {"name":"YUJU","ja":"蒼井 優樹","emoji":"🐶","color":"ブルー","hex":"#4CEDFF","img":"member_yuju.jpg","birth":"2002/12/20","age":"23","height":"178cm","from":"埼玉県","blood":"A","pos":"リーダー","hobby":"サッカー・料理・音楽鑑賞・アニメ・リフティング"},
+ {"name":"YUJU","ja":"蒼井 優樹","emoji":"🐶","color":"ライトブルー","hex":"#4CEDFF","img":"member_yuju.jpg","birth":"2002/12/20","age":"23","height":"178cm","from":"埼玉県","blood":"A","pos":"リーダー","hobby":"サッカー・料理・音楽鑑賞・アニメ・リフティング"},
  {"name":"RUKA","ja":"山倉 琉楓","emoji":"🐬","color":"グリーン","hex":"#0AFF00","img":"member_ruka.jpg","birth":"2003/11/01","age":"22","height":"174cm","from":"宮崎県","blood":"A","pos":"サブリーダー","hobby":"4歳からダンス・振付習得が速い・ヨーヨー・衣類リメイク"},
  {"name":"GAKU","ja":"藤野 雅久","emoji":"🐯","color":"レッド","hex":"#FE0B00","img":"member_gaku.jpg","birth":"2004/04/25","age":"22","height":"176cm","from":"長野県","blood":"O","pos":"メインダンサー","hobby":"HIPHOPダンス・バスケ・スケボー・短距離走・撮影"},
  {"name":"HIKARU","ja":"白濱 輝","emoji":"🦢","color":"ホワイト","hex":"#E6EEF5","img":"member_hikaru.jpg","birth":"2005/03/28","age":"21","height":"182cm","from":"群馬県","blood":"B","pos":"ビジュアル・ダンサー","hobby":"3歳からクラシックバレエ・空手・アニメ・高い柔軟性"},
@@ -74,11 +74,12 @@ PROPOSE = [
    "「青い炎」世界観の<b>ブランケット/エコバッグ</b>（物販客単価アップ枠）"]},
 ]
 FACTCHECK = [
+ "<b>検証済み（2026/6/16・一次ソース照合）</b>：デビュー日・所属レーベル(JCONIC)・デビュー曲・ファンダム名(aoring)・7人の生年月日/年齢/身長/出身は公式サイトと一致。",
  "HIKARU（輝）は番組内は「HAKU」名義。<b>2025/6/11デビュー当日に本名HIKARUへ改名</b>（一次：Oricon）。",
+ "メンカラ7色・絵文字の<b>割り当て</b>は公式X（@aoen_members）発表ベースで一致。ただし<b>HEX数値は二次ソース由来</b>＝実制作は公式ビジュアルからスポイト確認推奨。",
+ "漢字の苗字（蒼井/山倉/藤野/白濱/芹澤）・詳細ポジションは<b>公式プロフィール非掲載の項目を含み二次ソース確認ベース</b>＝確定前に要確認。SOTA・REO の苗字は事務所非公開。",
  "デビュー追加メンバーの得票数はソース間で桁が食い違う＝<b>Oricon一次ソースで要確認</b>。",
- "SOTA・REO の苗字は事務所非公開（名前のみ）＝<b>要確認</b>。",
- "メンカラHEXは kpoptune 由来。公式16進数の明示ではない可能性＝<b>実制作は公式ビジュアルからスポイト確認</b>。",
- "メンバー写真・グッズ画像は<b>公式（公式サイト/Weverse Shop）から取得</b>。各IP公式に帰属。",
+ "メンバー写真・グッズ画像は<b>公式（公式サイト profile / 公式 Weverse Shop）から取得</b>。各IP公式に帰属。",
 ]
 SOURCES = [
  ("aoen 公式サイト","https://aoen-official.jp/"),("aoen 公式 Weverse Shop","https://weverse.io/aoen"),
