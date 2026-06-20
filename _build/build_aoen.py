@@ -21,7 +21,8 @@ def load(name, size, q=82):
 GROUP = {
     "name_ja":"aoen（アオエン）","name_hangul":"아오엔",
     "origin":"ao（青＝最も熱い炎の色）＋ en（炎＝情熱の疾走）。「応援（エール）」の音も重ねた造語。意味は「青い炎で世界を満たす」",
-    "label":"JCONIC（旧 YX LABELS / HYBE LABELS JAPAN・2026/1 移管）",
+    "label":"JCONIC（HYBE系）",
+    "label_full":"JCONIC（ジェイコニック）。HYBE Japan が2026年1月に新設したレーベル。デビュー時は YX LABELS（HYBE の日本法人 HYBE LABELS JAPAN 傘下）に所属、2026年1月に JCONIC へ移籍。",
     "debut":"2025年6月11日 デビュー曲「The Blue Sun」",
     "audition":"オーディション番組「応援-HIGH 〜夢のスタートライン〜（Oen-HIGH）」発",
     "fandom":"aoring（アオリン）","members":"7名",
@@ -256,7 +257,7 @@ def hobby_chips(s):
 
 # 1 概要
 H.append('<section class="t-data"><div class="sh"><span class="no">01</span><h2>🪪 IP概要</h2><span class="typ">DATA</span></div><div class="card"><table>')
-for k,v in [("正式名称",GROUP["name_ja"]+" / "+GROUP["name_hangul"]),("名前の由来",GROUP["origin"]),("所属レーベル",GROUP["label"]),("デビュー",GROUP["debut"]),("発掘",GROUP["audition"]),("ファンダム名",GROUP["fandom"]),("メンバー数",GROUP["members"]),("コンセプト",GROUP["concept"])]:
+for k,v in [("正式名称",GROUP["name_ja"]+" / "+GROUP["name_hangul"]),("名前の由来",GROUP["origin"]),("所属レーベル",GROUP["label_full"]),("デビュー",GROUP["debut"]),("発掘",GROUP["audition"]),("ファンダム名",GROUP["fandom"]),("メンバー数",GROUP["members"]),("コンセプト",GROUP["concept"])]:
     H.append('<tr><th>'+esc(k)+'</th><td>'+br(v)+'</td></tr>')
 H.append('<tr><th>ディスコグラフィー</th><td>'+''.join('<span class="chip">'+esc(d)+'</span>' for d in GROUP["disco"])+'</td></tr>')
 H.append('<tr><th>公式SNS</th><td>'+" ・ ".join(['<a href="'+u+'" target="_blank">'+esc(n)+'</a>' for n,u in GROUP["sns"]])+'</td></tr>')
