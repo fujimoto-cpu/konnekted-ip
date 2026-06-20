@@ -50,7 +50,14 @@ GOODS = [
  ("goods_photocard_seishun.jpg","フォトカード","青春インクレディブル"),
  ("goods_tshirt_black.jpg","Tシャツ（ブラック）","青のはじまり 47+1"),
 ]
-GOODS_OUT = ["フォトカード","アクスタ","アクリルキーホルダー","応援うちわ","フォト缶バッジ","Tシャツ","トートバッグ","ツアータオル","ゆらゆらチャーム","フォトカードバインダー","グリッター缶バッジ"]
+# 横長の7人組セット（全幅表示）
+GOODS_WIDE = [
+ ("goods_messagecard_hajimari.jpg","メッセージカード（全7種）","ハジマリCOLOR"),
+ ("goods_photocard_pop.jpg","メンカラPOPフォトカード（全7種）","ハジマリCOLOR"),
+ ("goods_photocard_kanji.jpg","漢字ネームフォトカード（全7種）","ハジマリCOLOR"),
+ ("goods_collectcard_47plus1.jpg","コレクションカード（全7種）","青のはじまり 47+1"),
+]
+GOODS_OUT = ["フォトカード","トレカ","メッセージカード","アクスタ","アクリルキーホルダー","応援うちわ","フォト缶バッジ","Tシャツ","トートバッグ","ツアータオル","ゆらゆらチャーム","フォトカードバインダー","グリッター缶バッジ"]
 GOODS_GAP = [
  ("公式ペンライト","K-POP系では必須なのに未確認＝最大の空白"),
  ("ヘビーアパレル（パーカー/スウェット/ジャケット）","Tシャツ止まり。日常着レンジが空いている"),
@@ -112,6 +119,7 @@ def esc(s): return s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;"
 print("compressing images...")
 m_imgs = {m["name"]: load(m["img"], (560,720), 80) for m in MEMBERS}
 g_imgs = [(load(f,(760,760),80), label, series) for f,label,series in GOODS]
+gw_imgs = [(load(f,(1100,1100),80), label, series) for f,label,series in GOODS_WIDE]
 hero_img = load("group_01.jpg",(1100,1100),80)
 
 CSS = '''*{margin:0;padding:0;box-sizing:border-box}
@@ -156,6 +164,9 @@ th{color:var(--mut);font-weight:700;width:30%;white-space:nowrap}
 .gc{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
 .gc img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#eef3f7}
 .gc .cap{padding:8px 10px}.gc .cap b{font-size:12px}.gc .cap span{font-size:10px;color:var(--mut);display:block}
+.gcw{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin-top:10px}
+.gcw img{width:100%;height:auto;display:block;background:#f0f4f8}
+.gcw .cap{padding:8px 12px}.gcw .cap b{font-size:12px}.gcw .cap span{font-size:10px;color:var(--mut);display:block}
 .glist{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 2px}
 .gpill{font-size:12px;background:#eef6fb;border:1px solid #d4e8f3;color:#0a6c93;padding:5px 10px;border-radius:8px}
 .gap{background:#fff5f8;border:1px solid #ffd0e0;border-radius:12px;padding:11px 13px;margin-top:8px}
@@ -218,9 +229,14 @@ H.append('<b>発売実物（公式 Weverse Shop）</b><div class="ggrid" style="
 for img,label,series in g_imgs:
     H.append('<div class="gc"><img src="'+img+'" alt="'+esc(label)+'" loading="lazy"><div class="cap"><b>'+esc(label)+'</b><span>'+esc(series)+'</span></div></div>')
 H.append('</div>')
+# 横長：フォトカード/トレカ展開
+H.append('<p class="note" style="margin-top:16px"><b>📸 フォトカード・トレカ展開（リリース特典・全7種）</b></p>')
+for img,label,series in gw_imgs:
+    H.append('<div class="gcw"><img src="'+img+'" alt="'+esc(label)+'" loading="lazy"><div class="cap"><b>'+esc(label)+'</b><span>'+esc(series)+'（公式）</span></div></div>')
 H.append('<p class="note" style="margin-top:14px"><b>出ているカテゴリ</b></p><div class="glist">')
 for n in GOODS_OUT: H.append('<span class="gpill">'+esc(n)+'</span>')
-H.append('</div><p class="note" style="margin-top:14px"><b style="color:#d6336c">⬇ まだ出ていない＝KONNEKTEDの勝ち筋</b></p>')
+H.append('</div><p class="note" style="margin-top:10px">📌 デビュー約1年。グッズは<b>フォトカード/トレカ＋アクスタ中心</b>で、立体・実用・本格アパレル系はまだ薄い＝伸びしろが大きい。</p>')
+H.append('<p class="note" style="margin-top:14px"><b style="color:#d6336c">⬇ まだ出ていない＝KONNEKTEDの勝ち筋</b></p>')
 for n,why in GOODS_GAP: H.append('<div class="gap"><b>'+esc(n)+'</b><span class="why">'+esc(why)+'</span></div>')
 H.append('</div></section>')
 
