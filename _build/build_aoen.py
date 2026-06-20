@@ -122,6 +122,12 @@ REFS = [
 
 def esc(s): return s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
 
+def br(s):
+    # 文末（。）ごとに改行して冗長感を切る。末尾の余分な改行は除去。HTMLタグは温存。
+    s = s.replace("。", "。<br>")
+    if s.endswith("<br>"): s = s[:-4]
+    return s
+
 # ---- load images ----
 print("compressing images...")
 m_imgs = {m["name"]: load(m["img"], (560,720), 80) for m in MEMBERS}
@@ -251,7 +257,7 @@ def hobby_chips(s):
 # 1 概要
 H.append('<section class="t-data"><div class="sh"><span class="no">01</span><h2>🪪 IP概要</h2><span class="typ">DATA</span></div><div class="card"><table>')
 for k,v in [("正式名称",GROUP["name_ja"]+" / "+GROUP["name_hangul"]),("名前の由来",GROUP["origin"]),("所属レーベル",GROUP["label"]),("デビュー",GROUP["debut"]),("発掘",GROUP["audition"]),("ファンダム名",GROUP["fandom"]),("メンバー数",GROUP["members"]),("コンセプト",GROUP["concept"])]:
-    H.append('<tr><th>'+esc(k)+'</th><td>'+v+'</td></tr>')
+    H.append('<tr><th>'+esc(k)+'</th><td>'+br(v)+'</td></tr>')
 H.append('<tr><th>ディスコグラフィー</th><td>'+''.join('<span class="chip">'+esc(d)+'</span>' for d in GROUP["disco"])+'</td></tr>')
 H.append('<tr><th>公式SNS</th><td>'+" ・ ".join(['<a href="'+u+'" target="_blank">'+esc(n)+'</a>' for n,u in GROUP["sns"]])+'</td></tr>')
 H.append('</table></div></section>')
@@ -271,7 +277,7 @@ for m in MEMBERS:
     H.append('</table>')
     H.append('<div class="chips" style="margin-top:8px">'+hobby_chips(m["hobby"])+'</div>')
     H.append('</div></div>')
-H.append('</div><p class="note">※ メンバー写真は aoen 公式（公式サイト profile / 公式 Weverse）から取得。各IP公式に帰属。</p></section>')
+H.append('</div><p class="note">'+br('※ メンバー写真は aoen 公式（公式サイト profile / 公式 Weverse）から取得。各IP公式に帰属。')+'</p></section>')
 
 # 3 visual
 H.append('<section class="t-data"><div class="sh"><span class="no">03</span><h2>🎨 ビジュアル & 世界観</h2><span class="typ">DATA</span></div><div class="card"><b>メンバーカラー パレット</b><div class="pal" style="margin-top:8px">')
@@ -294,7 +300,7 @@ for img,label,series in gw_imgs:
     H.append('<div class="gcw"><img src="'+img+'" alt="'+esc(label)+'" loading="lazy"><div class="cap"><b>'+esc(label)+'</b><span>'+esc(series)+'（公式）</span></div></div>')
 H.append('<p class="note" style="margin-top:14px"><b>出ているカテゴリ</b></p><div class="glist">')
 for n in GOODS_OUT: H.append('<span class="gpill">✓ '+esc(n)+'</span>')
-H.append('</div><p class="note" style="margin-top:10px">📌 デビュー約1年。グッズは<b>フォトカード/トレカ＋アクスタ中心</b>。立体・実用・本格アパレル系はまだ薄い＝伸びしろ大。</p>')
+H.append('</div><p class="note" style="margin-top:10px">'+br('📌 デビュー約1年。グッズは<b>フォトカード/トレカ＋アクスタ中心</b>。立体・実用・本格アパレル系はまだ薄い＝伸びしろ大。')+'</p>')
 H.append('<p style="margin-top:14px;font-size:13px;font-weight:700;color:#d6336c">⬇ まだ出ていない ＝ KONNEKTEDの勝ち筋</p>')
 H.append('<table class="tbl"><tr><th>未展開カテゴリ</th><th>なぜ空いてる</th></tr>')
 for n,why in GOODS_GAP: H.append('<tr><td class="idea">⬜ '+esc(n)+'</td><td>'+esc(why)+'</td></tr>')
@@ -302,7 +308,7 @@ H.append('</table></div></section>')
 
 # 5 propose
 H.append('<section class="t-idea"><div class="sh"><span class="no">05</span><h2>🎯 KONNEKTED 提案ヒント</h2><span class="typ">IDEA</span></div>')
-H.append('<div class="card" style="padding:14px"><p class="note" style="margin:0">3カテゴリ × このIPならではの具体アイデア（<b>過去グッズの空白と接続</b>）。※提案たたき台・要すり合わせ。</p>')
+H.append('<div class="card" style="padding:14px"><p class="note" style="margin:0">'+br('3カテゴリ × このIPならではの具体アイデア（<b>過去グッズの空白と接続</b>）。※提案たたき台・要すり合わせ。')+'</p>')
 for p in PROPOSE:
     H.append('<div class="ptab"><div class="ph" style="background:'+p["tone"]+'18"><span class="dot" style="background:'+p["tone"]+'"></span>'+esc(p["cat"])+' <span class="s">'+esc(p["sub"])+'</span></div>')
     H.append('<table class="tbl" style="margin:0"><tr><th>アイデア</th><th>ねらい</th></tr>')
@@ -329,9 +335,9 @@ for grp,items in REFS:
         H.append('<li style="font-size:12.5px;margin-bottom:5px;line-height:1.5">'+esc(title)+'<br><a href="'+u+'" target="_blank" style="font-size:11px">'+esc(u)+'</a></li>')
         n+=1
     H.append('</ol>')
-H.append('<p class="note" style="margin-top:12px">最終確認：2026-06-16。情報は上記を二重照合し、公式・一次を優先。メンバー写真／グッズ画像は公式サイト profile ページ及び公式 Weverse Shop から取得。</p></div></section>')
+H.append('<p class="note" style="margin-top:12px">'+br('最終確認：2026-06-16。情報は上記を二重照合し、公式・一次を優先。メンバー写真／グッズ画像は公式サイト profile ページ及び公式 Weverse Shop から取得。')+'</p></div></section>')
 
-H.append('<footer><b>社内提案検討用 / 対外配布禁止</b><br>画像・情報は aoen 各公式に帰属します。提案検討のための社内リサーチであり、確定情報ではありません。<br>generated '+TODAY+' by KONNEKT ＿ /ip-brief</footer>')
+H.append('<footer><b>社内提案検討用 / 対外配布禁止</b><br>'+br('画像・情報は aoen 各公式に帰属します。提案検討のための社内リサーチであり、確定情報ではありません。')+'<br>generated '+TODAY+' by KONNEKT ＿ /ip-brief</footer>')
 H.append('</div></body></html>')
 
 out = os.path.join(ROOT,"aoen","index.html")
